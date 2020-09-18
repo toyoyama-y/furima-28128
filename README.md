@@ -24,35 +24,20 @@
 | name         | string  | null: false |
 | price        | integer | null: false |
 | product_name | string  | null: false |
-| product      | text    | null: false |
+| product_data | text    | null: false |
 
 ### Association
 
-- has_many :room_users
-- has_many :users, through: room_users
-- has_many :messages
+- belongs_to :users
+- has_one :purchases
 
-## room_users テーブル
+## parchases テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| price  | references | null: false |
 
 ### Association
 
-- belongs_to :room
-- belongs_to :user
-
-## messages テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :room
-- belongs_to :user
+- belongs_to :users
+- belongs_to :listings
