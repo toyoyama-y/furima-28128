@@ -6,7 +6,7 @@
 
 | Column           | Type    | Options     |
 | ---------------- | ------- | ----------- |
-| nickname         | string  | null: false |
+| nick_name        | string  | null: false |
 | email            | string  | null: false |
 | password         | string  | null: false |
 | family_name      | string  | null: false |
