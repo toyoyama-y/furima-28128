@@ -28,7 +28,7 @@
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | user_id      | references | null: false, foreign_key: true |
-| image_url    |            | null: false                    |
+| image_url    | string     | null: false                    |
 | name         | string     | null: false                    |
 | text         | text       | null: false                    |
 | category     | string     | null: false                    |
