@@ -13,9 +13,9 @@
 | first_name       | string  | null: false |
 | family_name_kana | string  | null: false |
 | first_name_kana  | string  | null: false |
-| birth_year       | integer | null: false |
-| birth_month      | integer | null: false |
-| birthday         | integer | null: false |
+| birth_year       | date    | null: false |
+| birth_month      | date    | null: false |
+| birthday         | date    | null: false |
 
 ### Association
 
@@ -63,7 +63,7 @@
 | city         | string     | null: false                    |
 | address      | integer    | null: false                    |
 | building     | string     | null: true                     |
-| telephone    | integer    | null: false                    |
+| telephone    | string     | null: false                    |
 
 ### Association
 
