@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  PASSWORD_REGIX =/\A(?=.*?[a-z])[a-z\d]{6,}+\z/
+  PASSWORD_REGIX =/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i
   validates_format_of :password, with: PASSWORD_REGIX,
             message: "に半角英字と半角数字の両方を含めて設定してください"
 
