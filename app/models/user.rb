@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :first_name
   end
 
-with_options presence: true, format: { with: /\A[ァ-ン]+\z/, message: 'はカタカナを使用してください' } do
+  with_options presence: true, format: { with: /\A[ァ-ン]+\z/, message: 'はカタカナを使用してください' } do
   validates :family_name_kana
   validates :first_name_kana
 end
