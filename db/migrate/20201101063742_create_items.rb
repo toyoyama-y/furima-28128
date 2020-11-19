@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :status_id
       t.integer :shipping_fee_id
       t.integer :area_id
-      t.integer :days_id
+      t.integer :day_id
       t.integer :price
       t.timestamps
     end
