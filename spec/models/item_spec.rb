@@ -10,13 +10,13 @@ RSpec.describe Item, type: :model do
       expect(@item).to be_valid
     end
 
-    it '画像(image)が空だと保存できない' do
+    it '画像(image_id)が0だと保存できない' do
       @item.image = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Image can't be blank")
     end
 
-    it '商品名(name)が空だと保存できない' do
+    it '商品名(name_id)が0だと保存できない' do
       @item.name = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Name can't be blank")
@@ -28,7 +28,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
     end
 
-    it '商品の説明(text)が空だと保存できない' do
+    it '商品の説明(text_id)が0だと保存できない' do
       @item.text = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Text can't be blank")
@@ -40,31 +40,31 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Text is too long (maximum is 1000 characters)")
     end
 
-    it 'カテゴリー(category)が空だと保存できない' do
+    it 'カテゴリー(category_id)が0だと保存できない' do
       @item.category = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Category can't be blank")
     end
 
-    it '状態(status)が空だと保存できない' do
+    it '状態(status_id)が0だと保存できない' do
       @item.status = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Status can't be blank")
     end
 
-    it '配送料(shipping_fee)が空だと保存できない' do
+    it '配送料(shipping_fee_id)が0だと保存できない' do
       @item.shipping_fee = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Shipping fee can't be blank", "Shipping fee 選択肢を選んでください")
     end
 
-    it '配送元の地域(area)が空だと保存できない' do
+    it '配送元の地域(area_id)が0だと保存できない' do
       @item.area = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Area can't be blank")
     end
 
-    it '発送までに日数(day)が空だと保存できない' do
+    it '発送までに日数(day_id)が0だと保存できない' do
       @item.day = nil
       @item.valid?
       expect(@item.errors.full_messages).to include("Day can't be blank")
