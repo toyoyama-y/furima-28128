@@ -41,39 +41,45 @@ RSpec.describe Item, type: :model do
     end
 
     it 'カテゴリー(category_id)が0だと保存できない' do
-      @item.category = nil
+      @item.category_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank")
+      expect(@item.errors.full_messages).to include("Category 選択肢を選んでください")
     end
 
     it '状態(status_id)が0だと保存できない' do
-      @item.status = nil
+      @item.status_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status can't be blank")
+      expect(@item.errors.full_messages).to include("Status 選択肢を選んでください")
     end
 
     it '配送料(shipping_fee_id)が0だと保存できない' do
-      @item.shipping_fee = nil
+      @item.shipping_fee_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping fee can't be blank", "Shipping fee 選択肢を選んでください")
+      expect(@item.errors.full_messages).to include("Shipping fee 選択肢を選んでください")
     end
 
     it '配送元の地域(area_id)が0だと保存できない' do
-      @item.area = nil
+      @item.area_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Area can't be blank")
+      expect(@item.errors.full_messages).to include("Area 選択肢を選んでください")
     end
 
     it '発送までに日数(day_id)が0だと保存できない' do
-      @item.day = nil
+      @item.day_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Day can't be blank")
+      expect(@item.errors.full_messages).to include("Day 選択肢を選んでください")
     end
 
     it '価格の範囲が¥300~¥9,999,999の間であること' do
       @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+    end
+
+    it '価格が299円以下では登録が出来ないこと' do
+      @item.price = 299
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
 
     it '販売価格は半角英数字のみ保存可能であること' do
