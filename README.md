@@ -67,3 +67,4 @@
 ### Association
 
 - belongs_to :wallet
+
