@@ -11,4 +11,11 @@ class Buyer
     validates :telephone,  format: {with: /^\d{11}$/, message: "is invalid. Do not include hyphen(-)"}
   end
 
+  def save
+    # 購入者情報を保存
+    Wallet.create(user_id: user.id, item_id: item.id)
+    # 配送先情報を保存
+    ShippingAddress.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building: building, telephone: telephone, wallet_id: wallet.id)
+  end
+
 end
