@@ -1,4 +1,4 @@
-class Prefecture < ApplicationRecord
+class Prefecture < ActiveHash::Base
   self.data = [
     {id: 0, name: '---'},
     {id: 1, name: '北海道'}, {id: 2, name: '青森県'}, {id: 3, name: '岩手県'},
@@ -20,6 +20,6 @@ class Prefecture < ApplicationRecord
 ]
 
   include ActiveHash::Associations
-  has_many :shipping_addresses
+  has_many :items
 
 end
