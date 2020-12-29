@@ -11,6 +11,8 @@ class BuyerForm
     validates :telephone,  format: {with: /\A\d{11}\z/, message: "is invalid. Do not include hyphen(-)"}
   end
 
+  validates :prefecture_id, numericality: { other_than: 0, message: '選択肢を選んでください' }
+
   def save
     # 購入者情報を保存
     wallet = Wallet.create(user_id: user_id, item_id: item_id)
