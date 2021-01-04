@@ -10,6 +10,8 @@ class BuyerForm
     validates :city
     validates :token
     validates :address
+    validates :user_id
+    validates :item_id
     validates :telephone,  format: {with: /\A\d{11}\z/, message: "is invalid. Do not include hyphen(-)"}
   end
 

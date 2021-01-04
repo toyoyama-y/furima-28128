@@ -10,6 +10,18 @@ RSpec.describe BuyerForm, type: :model do
       expect(@buyer_form).to be_valid
     end
 
+    it 'user_idが空の場合保存できない' do
+      @buyer_form.user_id = nil
+      @buyer_form.valid?
+      expect(@buyer_form.errors.full_messages).to include("User can't be blank")
+    end
+
+    it 'item_idが空の場合保存できない' do
+      @buyer_form.item_id = nil
+      @buyer_form.valid?
+      expect(@buyer_form.errors.full_messages).to include("Item can't be blank")
+    end
+
     it '郵便番号が必須であること' do
       @buyer_form.postal_code = nil
       @buyer_form.valid?
