@@ -70,7 +70,9 @@ RSpec.describe BuyerForm, type: :model do
     end
 
     it 'クレジットカード情報は必須であること' do
-
+      @buyer_form.token = nil
+      @buyer_form.valid?
+      expect(@buyer_form.errors.full_messages).to include("Token can't be blank")
     end
 
   end
